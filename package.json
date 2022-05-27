@@ -1,0 +1,31 @@
+{
+  "name": "express-sequelize-mysql-reactjs-simpleapp",
+  "version": "1.0.0",
+  "description": "express-sequelize-mysql-reactjs-simpleapp",
+  "main": "src/server.js",
+  "scripts": {
+    "server": "nodemon src/server.js",
+    "front": "npm start --prefix front-app",
+    "dev": "concurrently \" npm run server \" \" npm run front \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hasancse1617/express-Sequelize-MySql-Reactjs-SimpleApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hasancse1617/express-Sequelize-MySql-Reactjs-SimpleApp/issues"
+  },
+  "homepage": "https://github.com/Hasancse1617/express-Sequelize-MySql-Reactjs-SimpleApp#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "concurrently": "^7.2.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16",
+    "sequelize": "^6.20.0"
+  }
+}
