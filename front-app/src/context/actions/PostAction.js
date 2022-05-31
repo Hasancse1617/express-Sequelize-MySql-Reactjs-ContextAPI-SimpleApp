@@ -1,4 +1,4 @@
-import { REMOVE_LOADER, SET_ERRORS, SET_LOADER, SET_POSTS, SET_SINGLE_POST, SET_SUCCESS_MESSAGE } from "../types/PostType"
+import { REMOVE_LOADER, SET_ERRORS, SET_LOADER, SET_POSTS, SET_POST_COMMENT, SET_SINGLE_POST, SET_SUCCESS_MESSAGE } from "../types/PostType"
 import axiosInstance from "../../helper/axiosInstance";
 
 export const fetchPosts = () =>{
@@ -70,12 +70,27 @@ export const createPost = (postData) =>{
      }
  }
 
- export const createComment = (commentData) =>{
+ export const createComment = (commentData,id) =>{
      return async(dispatch)=>{
         try {
-             dispatch({type: SET_LOADER});
-             const {data:{message}} = await axiosInstance.post(`/create-comment`, commentData);
-             dispatch({type: SET_SUCCESS_MESSAGE, payload: message});
+          //    dispatch({type: SET_LOADER});
+             const {data:{response}} = await axiosInstance.post(`/create-comment/${id}`, commentData);
+             dispatch({type: SET_POST_COMMENT, payload: response});
+        } catch (error) {
+             const {errors} = error.response.data;
+             dispatch({type: REMOVE_LOADER});
+             dispatch({type: SET_ERRORS, payload: errors});
+        }
+     }
+ }
+
+ export const fetchComments = (id) =>{
+     return async(dispatch)=>{
+        try {
+          //    dispatch({type: SET_LOADER});
+             const {data:{response}} = await axiosInstance.get(`/all-comment/${id}`);
+             dispatch({type: SET_POST_COMMENT, payload: response});
+          //    dispatch({type: REMOVE_LOADER});
         } catch (error) {
              const {errors} = error.response.data;
              dispatch({type: REMOVE_LOADER});

@@ -1,4 +1,5 @@
 const Post = require("../models/Post");
+const Comment = require("../models/Comment");
 
 module.exports.allPost = async(req, res)=>{
     try {
@@ -62,10 +63,6 @@ module.exports.updatePost = async(req, res)=>{
     if(content === ''){
         errors.push({msg:'Content is required'});
     }
-    // const checkPost = await Post.findOne({where:{title:title}});
-    // if(checkPost){
-    //     errors.push({msg:'Post is already exists'});
-    // }
 
     if(errors.length !== 0){
         return res.status(400).json({errors});
@@ -93,23 +90,33 @@ module.exports.deletePost = async(req, res)=>{
 }
 
 module.exports.createComment = async(req, res)=>{
+    const post_id = req.params.id;
     const {comment} = req.body;
     const errors = [];
     if(comment === ''){
-        errors.push({msg: 'Title is required'});
+        errors.push({msg: 'Comment is required'});
     }
     if(errors.length !== 0){
         return res.status(400).json({errors});
     }else{
         try {
-            // const response = await Post.create({
-            //     title,
-            //     image,
-            //     content
-            // });
-            // return res.status(200).json({message: "Post added Successfully"});
+            const response = await Comment.create({
+                post_id,
+                comment
+            });
+            const respone2 = await Comment.findAll({where:{post_id: post_id}, order:[['updatedAt','DESC']]})
+            return res.status(200).json({message: "Comment added Successfully", response:respone2});
         } catch (error) {
             return res.status(500).json({errors: [{msg: error.message}]});
         }
+    }
+}
+module.exports.allComment = async(req, res)=>{
+    const post_id = req.params.id;
+    try {
+        const response = await Comment.findAll({where:{post_id}, order:[['updatedAt','DESC']]});
+        return res.status(200).json({response});
+    } catch (error) {
+        return res.status(500).json({errors: [{msg: error.message}]});
     }
 }

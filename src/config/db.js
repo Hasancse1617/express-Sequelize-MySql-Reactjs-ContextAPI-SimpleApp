@@ -4,7 +4,7 @@ const { Sequelize } = require("sequelize");
 const sequelize = new Sequelize('simple_app_react_node', 'root','',{
     host:'localhost',
     dialect:'mysql',
-    // pool:{max:5,min:0,idel:10000}
+    logging:false
 });
 (async()=>{
     await sequelize.sync({force: false});

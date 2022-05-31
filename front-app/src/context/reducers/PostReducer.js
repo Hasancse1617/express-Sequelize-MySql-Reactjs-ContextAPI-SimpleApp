@@ -1,8 +1,9 @@
-import { REMOVE_LOADER, SET_POSTS, SET_LOADER, SET_ERRORS, REMOVE_ERRORS, SET_SUCCESS_MESSAGE, REMOVE_SUCCESS_MESSAGE, SET_SINGLE_POST, REMOVE_SINGLE_POST } from "../types/PostType"
+import { REMOVE_LOADER, SET_POSTS, SET_LOADER, SET_ERRORS, REMOVE_ERRORS, SET_SUCCESS_MESSAGE, REMOVE_SUCCESS_MESSAGE, SET_SINGLE_POST, REMOVE_SINGLE_POST, SET_POST_COMMENT, REMOVE_POST_COMMENT } from "../types/PostType"
 
 const initState = {
     loading: false,
     posts: [],
+    comments: [],
     post: {},
     message: "",
     errors: []
@@ -27,6 +28,10 @@ const PostReducer = (state=initState, action)=>{
             return{...state, post: action.payload}
         case REMOVE_SINGLE_POST:
             return{...state, post: {}}
+        case SET_POST_COMMENT:
+            return{...state, comments: action.payload}
+        case REMOVE_POST_COMMENT:
+            return{...state, comments: []}
         default:
             return state;
      }
