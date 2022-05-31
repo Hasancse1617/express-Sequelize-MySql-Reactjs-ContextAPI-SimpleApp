@@ -1,4 +1,6 @@
+
 const Home = () =>{
+  console.log("postState.posts");
     return(
       <div className="hero-area">
         <div className="container">

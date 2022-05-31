@@ -1,25 +1,22 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require("../config/db");
 
-class User extends Model {}
+class Post extends Model {}
 
-User.init({
+Post.init({
   // Model attributes are defined here
-  name: {
+  title: {
     type: DataTypes.STRING,
-  },
-  email: {
-    type: DataTypes.STRING
   },
   image: {
     type: DataTypes.STRING
   },
-  password: {
-    type: DataTypes.STRING
+  content: {
+    type: DataTypes.TEXT
   }
 }, {
   sequelize,
-  modelName: 'user'
+  modelName: 'post'
 });
 
-module.exports = User;
+module.exports = Post;

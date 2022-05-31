@@ -166,3 +166,28 @@ table img{
   padding: 20px 0px;
   font-size: 20px;
 }
+.single-post-content h4 {
+  color: #fff;
+  
+}
+.single-post-content button{
+  margin-top: 10px;
+}
+.single-post-content hr{
+  color: #fff;
+}
+.single-comment span {
+  display: inline-table;
+}
+.single-comment .img{
+  width: 10%;
+  position: relative;
+}
+.single-comment .p{
+  width: 80%;
+}
+.single-comment img {
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+}

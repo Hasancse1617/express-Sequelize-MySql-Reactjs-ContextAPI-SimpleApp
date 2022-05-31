@@ -1,15 +1,29 @@
+import { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { editPost } from "../../context/actions/PostAction";
+import appContext from "../../context/appContext";
+import Loader from "../loader/Loader";
+import Comment from "./Comment";
+
 const Detail = () =>{
-    return(
-        <div class="single-post-area">
-            <div class="container">
-                <div class="single-post-content col-md-8 offset-md-2">
-                    <h3>It was very hot day</h3>
-                    <img width="100%" height="300px" src="/images/download.jpg"/>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <h3>Comments</h3>
+    const { id } = useParams();
+    const { postState:{post,loading}, postDispatch } = useContext(appContext);
+    useEffect(()=>{
+        editPost(id)(postDispatch);
+     },[id]);
+
+    return !loading && typeof post == 'object'?(
+        <div className="single-post-area">
+            <div className="container">
+                <div className="single-post-content col-md-8 offset-md-2">
+                    <h3>{ post.title }</h3>
+                    <img width="100%" height="300px" src={`${post.image}`}/>
+                    <p>{ post.content }</p>
+                    
+                    <Comment/>
                 </div>
             </div>
         </div>
-    );
+    ):<Loader/>
 }
 export default Detail;

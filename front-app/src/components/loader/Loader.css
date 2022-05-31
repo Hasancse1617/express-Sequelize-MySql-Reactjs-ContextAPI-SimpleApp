@@ -1,0 +1,53 @@
+.loader-spinner{
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    z-index: 9;
+    opacity: 0.9;
+}
+.spinner {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 40%;
+    left: 46%;
+    margin: -20px 0 0 -20px;
+    animation: rotation 1s infinite linear;
+    border: 8px solid #fff;
+    border-radius: 50%;
+}
+ 
+.spinner:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: -10px;
+    height: 100%;
+    width: 100%;
+    border: 10px solid #118903;
+    border-left: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-radius: 50%;
+}
+ 
+ @-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(359deg);}
+ }
+ @-moz-keyframes rotation {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(359deg);}
+ }
+ @-o-keyframes rotation {
+    from {-o-transform: rotate(0deg);}
+    to {-o-transform: rotate(359deg);}
+ }
+ @keyframes rotation {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(359deg);}
+   }
