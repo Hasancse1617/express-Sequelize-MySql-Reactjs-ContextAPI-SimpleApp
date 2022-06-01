@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require("../config/db");
+const Post = require("./Post");
 
 class Comment extends Model {}
 
@@ -15,5 +16,6 @@ Comment.init({
   sequelize,
   modelName: 'comment'
 });
+
 
 module.exports = Comment;

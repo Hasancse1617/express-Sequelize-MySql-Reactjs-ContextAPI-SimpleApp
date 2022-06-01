@@ -3,6 +3,7 @@ const Comment = require("../models/Comment");
 
 module.exports.allPost = async(req, res)=>{
     try {
+        // const response = await Post.findAll({include: Comment, order:[['updatedAt','DESC']]});// HasMany Relation
         const response = await Post.findAll({order:[['updatedAt','DESC']]});
         return res.status(200).json({response});
     } catch (error) {
@@ -114,7 +115,7 @@ module.exports.createComment = async(req, res)=>{
 module.exports.allComment = async(req, res)=>{
     const post_id = req.params.id;
     try {
-        const response = await Comment.findAll({where:{post_id}, order:[['updatedAt','DESC']]});
+        const response = await Comment.findAll({ where:{post_id}, order:[['updatedAt','DESC']]});
         return res.status(200).json({response});
     } catch (error) {
         return res.status(500).json({errors: [{msg: error.message}]});

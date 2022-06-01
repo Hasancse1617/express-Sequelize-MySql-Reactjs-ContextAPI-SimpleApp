@@ -56,7 +56,7 @@ const Post = () =>{
                         {
                            posts? posts.map((post)=>(
                                 <tr key={post.id}>
-                                    <td style={{paddingLeft:'95px'}}><NavLink to={`/post/${post.id}`}><img width="50" height="50" src={`${post.image}`}/>{ post.title }</NavLink></td>
+                                    <td style={{paddingLeft:'95px'}}><NavLink title="Click here to go single post" to={`/post/${post.id}`}><img width="50" height="50" src={`${post.image}`}/>{ post.title }</NavLink></td>
                                     <td>{ moment().format('MMMM Do YYYY', post.createdAt) }</td>
                                     <td>
                                         <NavLink to={`/edit/${post.id}`} title="Edit"><i className="fa-regular fa-pen-to-square"></i></NavLink>

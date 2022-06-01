@@ -4,7 +4,7 @@ const Header = () =>{
     return(
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
         <div className="container">
-          <NavLink className="navbar-brand" to="/">CRUD</NavLink>
+          <NavLink className="navbar-brand" to="/">NEWS</NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span className="navbar-toggler-icon"></span>
           </button>

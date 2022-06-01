@@ -191,3 +191,6 @@ table img{
   position: absolute;
   top: -20px;
 }
+.single-post-area a {
+    text-decoration: none;
+}

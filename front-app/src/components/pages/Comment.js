@@ -30,6 +30,7 @@ const Comment = () =>{
             postDispatch({type: REMOVE_POST_COMMENT});
         }
     },[]);
+
     return(
         <>
            <form onSubmit={handleSubmit}>
