@@ -1,13 +1,13 @@
+import moment from "moment";
 import { useContext, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { NavLink, useSearchParams } from "react-router-dom";
+import Swal from 'sweetalert2';
 import { deletePost, fetchPosts } from "../../context/actions/PostAction";
 import appContext from "../../context/appContext";
 import { REMOVE_SUCCESS_MESSAGE } from "../../context/types/PostType";
 import Loader from "../loader/Loader";
 import Pagination from "../pagination/Pagination";
-import moment from "moment";
-import Swal from 'sweetalert2';
-import toast, {Toaster} from "react-hot-toast";
 
 const Post = () =>{
     const [searchParams] = useSearchParams();

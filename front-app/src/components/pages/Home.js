@@ -6,7 +6,7 @@ import appContext from "../../context/appContext";
 const Home = () =>{
   const { postState:{posts,loading}, postDispatch } = useContext(appContext);
   useEffect(()=>{
-      fetchPosts()(postDispatch);
+      fetchPosts(1)(postDispatch);
   },[]);
     return(
       <>

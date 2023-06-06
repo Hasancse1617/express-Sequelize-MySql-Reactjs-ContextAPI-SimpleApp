@@ -1,5 +1,5 @@
-import { REMOVE_LOADER, SET_ERRORS, SET_LOADER, SET_POSTS, SET_POST_COMMENT, SET_SINGLE_POST, SET_SUCCESS_MESSAGE } from "../types/PostType"
 import axiosInstance from "../../helper/axiosInstance";
+import { REMOVE_LOADER, SET_ERRORS, SET_LOADER, SET_POSTS, SET_POST_COMMENT, SET_SINGLE_POST, SET_SUCCESS_MESSAGE } from "../types/PostType";
 
 export const fetchPosts = (page) =>{
     return async(dispatch)=>{
