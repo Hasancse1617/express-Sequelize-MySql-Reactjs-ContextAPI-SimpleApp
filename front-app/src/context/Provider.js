@@ -4,6 +4,7 @@ import  PostReducer  from "./reducers/PostReducer";
 
 const GlobalProvider = ({children}) =>{
     const [postState, postDispatch] = useReducer(PostReducer, "");//Give empty State in Reducer
+    // console.log('state',postDispatch);
     return(
         <appContext.Provider value={{
            postState,

@@ -13,8 +13,8 @@ const Home = () =>{
       <div className="hero-area">
         <div className="container">
           <div className="hero-content">
-            <h1>Express Sequelize MySql React js</h1>
-            <h2>with Context api Simple app</h2>
+            <h1>Express js | Sequelize | MySql | React js</h1>
+            <h2>with <b>(Context API + useReducer)</b> like Redux Simple app</h2>
             
           </div>
         </div>

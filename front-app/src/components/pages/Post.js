@@ -1,23 +1,27 @@
 import { useContext, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import { deletePost, fetchPosts } from "../../context/actions/PostAction";
 import appContext from "../../context/appContext";
 import { REMOVE_SUCCESS_MESSAGE } from "../../context/types/PostType";
 import Loader from "../loader/Loader";
+import Pagination from "../pagination/Pagination";
 import moment from "moment";
 import Swal from 'sweetalert2';
 import toast, {Toaster} from "react-hot-toast";
 
 const Post = () =>{
-    const { postState:{posts,loading,message}, postDispatch } = useContext(appContext);
+    const [searchParams] = useSearchParams();
+    const page = searchParams.get("page");
+    const { postState:{posts,loading,message,perPage, count, pageLink}, postDispatch } = useContext(appContext);
     useEffect(()=>{
-        fetchPosts()(postDispatch);
-    },[]);
+        //function in function parameter pass
+        fetchPosts(page)(postDispatch);
+    },[page]);
     useEffect(()=>{
         if(message){
             toast.success(message);
             postDispatch({type: REMOVE_SUCCESS_MESSAGE});
-            fetchPosts()(postDispatch);
+            fetchPosts(page)(postDispatch);
         }
     },[message]);
 
@@ -68,6 +72,7 @@ const Post = () =>{
                         </tbody>
                         <tfoot></tfoot>
                     </table>
+                     <Pagination page={page} perPage={perPage} count={count} pageLink={pageLink} />
                 </div>
             </div>
         </div>

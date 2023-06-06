@@ -38,7 +38,7 @@ const Comment = () =>{
                 <div className="form-group">
                     <textarea value={state.comment} onChange={(e)=>setState({...state,comment:e.target.value})} name="comment" className="form-control" id="inputAddress" placeholder="Add comment" rows="2"></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">Sign in</button>
+                <button type="submit" className="btn btn-primary">Add</button>
             </form>
             <hr/>
             <h4>Comments ({comments?comments.length:''})</h4>

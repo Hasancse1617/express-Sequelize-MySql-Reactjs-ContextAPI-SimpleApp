@@ -25,7 +25,7 @@ const Create = () =>{
     }
     useEffect(()=>{
         if(message){
-            navigate("/posts");
+            navigate("/posts?page=1");
         }
         if(errors && errors.length > 0){
             errors.map((error)=>{
@@ -57,7 +57,7 @@ const Create = () =>{
                             <textarea className="form-control" onChange={handleInput} name="content" id="inputAddress" rows="4"></textarea>
                         </div>
                         
-                        <button type="submit" className="btn btn-primary">Sign in</button>
+                        <button type="submit" className="btn btn-primary">Create</button>
                     </form>
                 </div>
             </div>

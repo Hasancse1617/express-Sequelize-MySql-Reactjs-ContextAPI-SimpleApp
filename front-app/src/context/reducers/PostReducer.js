@@ -6,7 +6,10 @@ const initState = {
     comments: [],
     post: {},
     message: "",
-    errors: []
+    errors: [],
+    count: '',
+    perPage: '',
+    pageLink: '',
 }
 const PostReducer = (state=initState, action)=>{
      switch(action.type){
@@ -15,7 +18,7 @@ const PostReducer = (state=initState, action)=>{
         case REMOVE_LOADER:
             return{...state, loading: false}
         case SET_POSTS:
-            return{...state, posts: action.payload}
+            return{...state, posts: action.payload.response, count: action.payload.count, perPage: action.payload.perPage, pageLink: '/posts'}
         case SET_ERRORS:
             return{...state, errors: action.payload}
         case REMOVE_ERRORS:

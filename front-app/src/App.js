@@ -6,10 +6,9 @@ import Footer from './components/layouts/Footer';
 import Provider from "./context/Provider";
 
 function App() {
-  console.log("postState.posts");
+  // console.log("postState.posts");
   return (
     <> 
-      
         <BrowserRouter>
           <Header/>
           <Provider>

@@ -1,12 +1,12 @@
 import { REMOVE_LOADER, SET_ERRORS, SET_LOADER, SET_POSTS, SET_POST_COMMENT, SET_SINGLE_POST, SET_SUCCESS_MESSAGE } from "../types/PostType"
 import axiosInstance from "../../helper/axiosInstance";
 
-export const fetchPosts = () =>{
+export const fetchPosts = (page) =>{
     return async(dispatch)=>{
        try {
             dispatch({type: SET_LOADER});
-            const {data:{response}} = await axiosInstance.get(`/all-post`);
-            dispatch({type: SET_POSTS, payload: response});
+            const {data:{response, count, perPage}} = await axiosInstance.get(`/all-post/${page}`);
+            dispatch({type: SET_POSTS, payload: {response, count, perPage}});
             dispatch({type: REMOVE_LOADER});
        } catch (error) {
             const {errors} = error.response.data;

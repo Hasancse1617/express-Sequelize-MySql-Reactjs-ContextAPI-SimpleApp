@@ -31,7 +31,7 @@ const Edit = () =>{
 
     useEffect(()=>{
         if(message){
-            navigate("/posts");
+            navigate("/posts?page=1");
         }
         if(errors && errors.length > 0){
             errors.map((error)=>{
@@ -71,7 +71,7 @@ const Edit = () =>{
                             <label for="inputAddress2">Post Content</label>
                             <textarea className="form-control" onChange={handleInput} name="content" value={state.content} id="inputAddress" rows="4"></textarea>
                         </div>
-                        <button type="submit" className="btn btn-primary">Sign in</button>
+                        <button type="submit" className="btn btn-primary">Update</button>
                     </form>
                 </div>
             </div>
